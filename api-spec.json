@@ -1,0 +1,114 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Confluence Search API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://ai-gold-rush.atlassian.net/wiki"
+    }
+  ],
+  "paths": {
+    "/rest/api/content/search": {
+      "get": {
+        "summary": "Fetch a list of content using CQL",
+        "operationId": "contentSearch",
+        "parameters": [
+          {
+            "name": "cql",
+            "in": "query",
+            "description": "A CQL query string to locate content",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "cqlcontext",
+            "in": "query",
+            "description": "The context to execute a CQL search in JSON serialized form",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "A comma-separated list of properties to expand on the content",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "The start point of the collection to return",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The limit of the number of items to return (default is 25)",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ]
+      }
+    },
+    "/rest/api/content/{contentId}": {
+      "get": {
+        "summary": "Read content and expand the body",
+        "operationId": "readContentBody",
+        "parameters": [
+          {
+            "name": "contentId",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the content to retrieve",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "expand",
+            "in": "query",
+            "description": "The part of the content to expand (e.g., body.storage)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A paginated list of content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object"
+                      }
+                    }
+                  },
+                  "additionalProperties": false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
