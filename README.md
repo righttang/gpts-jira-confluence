@@ -42,7 +42,7 @@ This project integrates OpenAI's GPTs Action with Atlassian's Confluence and Jir
 5. **Actions**:
     - **Import Action**: Click 'Import from URL' and use the following link:
       ```
-      https://github.com/righttang/gpts-jira-confluence/blob/main/api-spec.json
+      https://raw.githubusercontent.com/righttang/gpts-jira-confluence/main/api-spec.json
       ```
     - Update the Spec inline with your wiki address, must ends with `/wiki`. Example:
       ```json
