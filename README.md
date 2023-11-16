@@ -10,7 +10,7 @@ This project integrates OpenAI's GPTs Action with Atlassian's Confluence and Jir
 
 ## Demo
 
-*The demo section will showcase the functionality or provide a link to a demonstration.*
+https://www.youtube.com/watch?v=iSmyuyoFsac
 
 ## Setup Instructions
 
